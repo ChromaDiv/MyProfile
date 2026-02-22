@@ -98,7 +98,7 @@ export function Hero() {
         <motion.div variants={childVariants} className="flex flex-col sm:flex-row items-center gap-5">
           <Button
             size="lg"
-            className="rounded-full px-8 h-14 bg-accent hover:bg-emerald-600 text-black font-bold group"
+            className="rounded-full px-8 h-14 bg-accent hover:bg-emerald-600 text-white font-bold group"
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Operational Systems

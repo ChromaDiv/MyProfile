@@ -135,7 +135,7 @@ export function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full h-14 rounded-xl bg-accent hover:bg-emerald-600 text-black font-bold tracking-wide transition-all shadow-lg shadow-accent/10"
+                  className="w-full h-14 rounded-xl bg-accent hover:bg-emerald-600 text-white font-bold tracking-wide transition-all shadow-lg shadow-accent/10"
                   disabled={loading}
                 >
                   {loading ? (
