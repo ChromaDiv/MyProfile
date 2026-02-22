@@ -38,7 +38,7 @@ export function Hero() {
           <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full p-1 border border-accent/30 bg-accent/5 backdrop-blur-md shadow-[0_0_40px_rgba(16,185,129,0.15)] group">
             <div className="w-full h-full rounded-full overflow-hidden relative">
               <Image
-                src="/profile.jpg"
+                src="/profile.JPG"
                 alt="Sohaib Latif"
                 fill
                 priority
