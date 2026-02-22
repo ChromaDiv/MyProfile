@@ -51,6 +51,9 @@ export function Hero() {
                 sizes="(max-width: 768px) 144px, 192px"
               />
             </div>
+            {/* Decorative Corner Accents */}
+            <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-accent/40 rounded-tl-lg" />
+            <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-accent/40 rounded-br-lg" />
           </motion.div>
 
           {/* Badge Metadata */}
