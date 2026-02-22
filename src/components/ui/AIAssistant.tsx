@@ -142,16 +142,29 @@ export function AIAssistant() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => { setIsOpen(true); setHasOpened(true); }}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-accent text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-shadow border border-accent/20 group"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-2 py-2 pr-5 rounded-full bg-background/90 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-accent/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 group overflow-hidden"
           >
-            <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" />
-            <span className="font-outfit font-medium text-sm whitespace-nowrap pr-1">Chat with AI</span>
-            {!hasOpened && (
-              <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white shadow-[0_0_5px_white]"></span>
+            {/* Subtle inner hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <div className="relative z-10 w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center p-0.5">
+              <AnimatedBot />
+              {!hasOpened && (
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-accent shadow-[0_0_5px_rgba(16,185,129,1)]"></span>
+                </span>
+              )}
+            </div>
+
+            <div className="relative z-10 flex flex-col items-start justify-center pt-0.5 mr-2">
+              <span className="font-outfit font-bold text-sm tracking-wide bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent group-hover:from-emerald-400 group-hover:to-accent transition-all duration-500">
+                Sohaib's AI
               </span>
-            )}
+              <span className="text-[9px] font-mono text-foreground/50 uppercase tracking-widest -mt-0.5 group-hover:text-foreground/80 transition-colors duration-300">
+                Ask me anything
+              </span>
+            </div>
           </motion.button>
         )}
       </AnimatePresence>
