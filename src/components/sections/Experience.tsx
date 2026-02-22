@@ -15,6 +15,9 @@ const timeline = [
         <li><strong>Operational Digitization:</strong> Developed custom data visualization and demand forecasting dashboards using React/Next.js.</li>
         <li><strong>Supply Chain Resilience:</strong> Managed high-stakes procurement-to-delivery workflows, ensuring zero downtime.</li>
         <li><strong>Process Optimization:</strong> Led cross-functional approvals for technical and commercial offers.</li>
+        <li><strong>Integrated Management System (IMS) Development:</strong> Conceptualized and deployed a custom software solution based on ISO 9001:2015 standards to unify departmental workflows and quality protocols.</li>
+        <li><strong>Quality Assurance Leadership:</strong> Reduced process variance by 40% through the implementation of digital SOPs and automated CAPA (Corrective and Preventive Action) tracking.</li>
+        <li><strong>Audit Optimization:</strong> Achieved a "Zero Major Non-Conformance" rating during annual audits by digitizing document control and lifecycle traceability.</li>
       </ul>
     ),
   },
@@ -62,15 +65,15 @@ const education = [
 
 export function Experience() {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="mb-16 max-w-4xl"
+        className="mb-16 w-full"
       >
-        <div className="space-y-6 text-foreground/80 leading-relaxed text-left md:text-justify">
+        <div className="space-y-6 text-foreground/80 leading-relaxed text-left md:text-justify w-full">
           <p className="text-xl md:text-2xl font-outfit font-bold text-accent mb-4">
             Strategic Supply Chain Lead | Engineering MBA | LEED Green Associate (Candidate)
           </p>
@@ -83,25 +86,25 @@ export function Experience() {
           <p className="text-sm md:text-base">
             Currently, I am leveraging my deep technical background and LEED candidate status to integrate sustainable frameworks into modern industrial operations. My goal is bridging the gap between operational efficiency, environmental stewardship, and scalable business ROI.
           </p>
+        </div>
 
-          {/* KPI Impact Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-            {[
-              { label: "Contract Value Managed", value: "$10M+" },
-              { label: "Cost Reduction Achieved", value: "15%" },
-              { label: "Service Level Maintained", value: "99%" },
-              { label: "Compliance Standards", value: "ISO & LEED" },
-            ].map((kpi, idx) => (
-              <div key={idx} className="glass p-3 md:p-4 rounded-xl border-accent/20 text-center flex flex-col justify-center">
-                <span className="text-xl md:text-3xl font-bold text-accent block mb-1">
-                  {kpi.value}
-                </span>
-                <span className="text-[9px] md:text-[10px] uppercase tracking-wider text-foreground/60 font-medium leading-tight">
-                  {kpi.label}
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* KPI Impact Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-12 w-full">
+          {[
+            { label: "Contract Value Managed", value: "$10M+" },
+            { label: "Cost Reduction Achieved", value: "15%" },
+            { label: "Service Level Maintained", value: "99%" },
+            { label: "Compliance Standards", value: "ISO & LEED" },
+          ].map((kpi, idx) => (
+            <div key={idx} className="glass p-4 md:p-6 rounded-2xl border-accent/20 text-center flex flex-col justify-center">
+              <span className="text-2xl md:text-4xl font-bold text-accent block mb-2">
+                {kpi.value}
+              </span>
+              <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/60 font-mono font-medium leading-tight">
+                {kpi.label}
+              </span>
+            </div>
+          ))}
         </div>
       </motion.div>
 

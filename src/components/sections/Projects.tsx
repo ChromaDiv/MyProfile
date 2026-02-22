@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Code2, Smartphone, TerminalSquare } from "lucide-react";
+import { Github, ExternalLink, Code2, Smartphone, TerminalSquare, ShieldCheck } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 const projects = [
@@ -23,6 +23,27 @@ const projects = [
     className: "md:col-span-2 md:row-span-2",
     demoLink: "https://green-build-nu.vercel.app/",
     image: "/greenbuild_dashboard.png"
+  },
+  {
+    id: "gov-ims",
+    title: "Gov-IMS (Integrated Management System)",
+    subtitle: "ISO 9001-Aligned Digital Governance & Quality Assurance Framework",
+    problem: "Government operations often face \"siloed\" data and inconsistent procedural execution, leading to audit vulnerabilities and operational delays. The goal was to consolidate fragmented departmental workflows into a single, high-integrity digital ecosystem that guarantees 100% compliance with international quality standards.",
+    engineeringFocus: [
+      "ISO 9001:2015 Standardization: Digitized the Quality Management System (QMS), ensuring every process—from procurement to final delivery—followed a traceable, standardized SOP.",
+      "Audit-Ready Architecture: Developed an automated document control and versioning module, reducing internal audit preparation time by 60%.",
+      "Corrective & Preventive Action (CAPA) Tracking: Integrated a real-time module to identify process bottlenecks and trigger automated corrective workflows, minimizing \"non-conformance\" reports.",
+      "Cross-Functional Governance: Created a centralized dashboard for executive oversight, providing real-time KPIs on departmental throughput and compliance health."
+    ],
+    impact: "By anchoring digital transformation in ISO 9001 principles, the IMS turned bureaucratic complexity into a streamlined, audit-proof engine for government operational excellence.",
+    roiMatrix: [
+      { objective: "Audit Compliance", approach: "ISO 9001 Framework Integration", result: "100% Compliance / Zero Major Non-Conformities." },
+      { objective: "Process Speed", approach: "Unified Workflow Automation", result: "35% reduction in administrative lead times." },
+      { objective: "Data Integrity", approach: "Centralized Digital Governance", result: "Eliminated 90% of manual paper-trail errors." }
+    ],
+    tags: ["ISO 9001:2015", "Quality Management (QMS)", "Process Standardization", "GovTech", "Compliance Automation"],
+    icon: <ShieldCheck className="w-10 h-10 mb-4 text-blue-400" />,
+    className: "md:col-span-2 md:row-span-2",
   },
   {
     id: "rmsys",
@@ -48,7 +69,7 @@ const projects = [
     subtitle: "Consultancy for Industrial Digitization",
     desc: "A strategic consultancy platform focusing on bridging the gap between legacy industrial operations and modern digital efficiency through bespoke automation and algorithmic growth systems.",
     icon: <Code2 className="w-10 h-10 mb-4 text-purple-400" />,
-    className: "md:col-span-1 md:row-span-1",
+    className: "md:col-span-2 md:row-span-2",
     demoLink: "https://chromadiv.com/",
     tags: ["Industrial Digitization", "Process Automation", "Digital Transformation"]
   }
@@ -56,7 +77,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -132,6 +153,30 @@ export function Projects() {
                 {project.impact && (
                   <div className="mb-6 p-4 bg-accent/5 rounded-xl border border-accent/10 italic">
                     <p className="text-sm text-foreground/90 leading-relaxed">&quot;{project.impact}&quot;</p>
+                  </div>
+                )}
+
+                {/* Optional ROI Matrix Rendering */}
+                {project.roiMatrix && (
+                  <div className="mb-6 overflow-x-auto">
+                    <table className="w-full text-left border-collapse text-sm">
+                      <thead>
+                        <tr className="border-b border-accent/20">
+                          <th className="py-2 px-3 font-bold text-foreground/90 uppercase tracking-wider text-xs">Objective</th>
+                          <th className="py-2 px-3 font-bold text-foreground/90 uppercase tracking-wider text-xs">Approach</th>
+                          <th className="py-2 px-3 font-bold text-foreground/90 uppercase tracking-wider text-xs">Result (ROI)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {project.roiMatrix.map((row, rIdx) => (
+                          <tr key={rIdx} className="border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+                            <td className="py-3 px-3 text-foreground/80 font-medium">{row.objective}</td>
+                            <td className="py-3 px-3 text-foreground/70">{row.approach}</td>
+                            <td className="py-3 px-3 text-accent font-medium">{row.result}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 )}
 

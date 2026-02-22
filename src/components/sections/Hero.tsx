@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const containerVariants: Variants = {
@@ -22,7 +23,7 @@ const childVariants: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 dark:bg-accent/5 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-slate-500/10 dark:bg-slate-900/10 rounded-full blur-[100px] pointer-events-none -z-10" />
@@ -32,10 +33,22 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        whileInView={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
       >
-        <motion.div variants={childVariants} className="inline-block">
+        <motion.div variants={childVariants} className="inline-flex flex-col items-center gap-6">
+          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full p-1 border border-accent/30 bg-accent/5 backdrop-blur-md shadow-[0_0_40px_rgba(16,185,129,0.15)] group">
+            <div className="w-full h-full rounded-full overflow-hidden relative">
+              <Image
+                src="/profile.jpg"
+                alt="Sohaib Latif"
+                fill
+                priority
+                className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 160px, 208px"
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent/20 to-transparent mix-blend-overlay pointer-events-none" />
+          </div>
+
           <span className="px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium tracking-wide">
             Portfolio 2026
           </span>
