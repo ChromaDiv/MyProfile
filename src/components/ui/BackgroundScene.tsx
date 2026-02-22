@@ -58,7 +58,7 @@ export function BackgroundScene() {
           {/* Now the Blue Orb is the Main Strategic Focus (Right Side) */}
           <KineticOrb
             color={colors.blue}
-            position={[4.5, -1, -1]}
+            position={[-5, 3, -4]}
             size={2.4}
             speed={1.1}
             distort={0.35}
@@ -67,7 +67,7 @@ export function BackgroundScene() {
           {/* Now the Cyan Orb is the Secondary Accent (Top Left) */}
           <KineticOrb
             color={colors.cyan}
-            position={[-5, 3, -4]}
+            position={[4.5, -1, -1]}
             size={1.6}
             speed={0.9}
             distort={0.4}

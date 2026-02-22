@@ -46,6 +46,10 @@ html {
 }
 
 
+.glass-section {
+  @apply bg-background/20 backdrop-blur-md border-y border-foreground/5 relative w-full overflow-hidden;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);

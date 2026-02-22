@@ -7,7 +7,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full overflow-hidden print:py-0 print:px-0 relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
+    <section id="case-studies" className="glass-section py-24 px-6 md:px-12 max-w-7xl mx-auto print:py-0 print:px-0">
 
       {/* Section Header */}
       <motion.div

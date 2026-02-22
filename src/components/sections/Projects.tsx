@@ -23,7 +23,7 @@ const projects = [
     ],
     tags: ["LEED", "Traceability", "QA/QC"],
     color: "text-blue-400",
-    bg: "group-hover:border-blue-500/50",
+    bg: "group-hover:border-blue-600/50",
     icon: <Code2 className="w-6 h-6" />,
     demoLink: "https://green-build-nu.vercel.app/"
   },
@@ -44,7 +44,7 @@ const projects = [
     ],
     tags: ["ISO 9001", "GovTech", "QMS"],
     color: "text-blue-400",
-    bg: "group-hover:border-blue-500/50",
+    bg: "group-hover:border-blue-600/50",
     icon: <ShieldCheck className="w-6 h-6" />,
   },
   {
@@ -63,7 +63,7 @@ const projects = [
       { label: "Op-Waste", value: "-18%", trend: "down" },
     ],
     tags: ["AI", "Inventory", "Sourcing"],
-    color: "text-blue-500",
+    color: "text-blue-600",
     bg: "group-hover:border-blue-600/50",
     icon: <TerminalSquare className="w-6 h-6" />,
     demoLink: "https://mintcream-zebra-738412.hostingersite.com/"
@@ -72,9 +72,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
-      {/* Structural Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none opacity-30" />
+    <section id="projects" className="glass-section py-24 px-6 md:px-12 max-w-7xl mx-auto">
 
       <motion.div
         initial={{ opacity: 0, x: -20 }}

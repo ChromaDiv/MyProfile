@@ -71,7 +71,7 @@ const education = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
+    <section id="experience" className="glass-section py-24 px-6 md:px-12 max-w-7xl mx-auto">
 
       {/* Executive Pitch */}
       <motion.div

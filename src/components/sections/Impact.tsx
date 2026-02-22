@@ -74,7 +74,7 @@ export function Impact() {
   const globeOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 1, 0.2]);
 
   return (
-    <section ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative w-full overflow-hidden bg-background/20 backdrop-blur-md border-y border-foreground/5">
+    <section ref={containerRef} className="glass-section py-24 px-6 md:px-12 max-w-7xl mx-auto">
 
       {/* Background Subtle Globe Decoration */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-50 z-0">
@@ -94,8 +94,8 @@ export function Impact() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
-                <Globe className="w-3 h-3 text-blue-500" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20">
+                <Globe className="w-3 h-3 text-blue-600" />
                 <span className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-widest">Global ESG Strategy</span>
               </div>
 

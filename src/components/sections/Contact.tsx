@@ -23,9 +23,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 md:px-12 max-w-6xl mx-auto w-full relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
+    <section id="contact" className="glass-section py-32 px-6 md:px-12 max-w-6xl mx-auto">
       {/* Decorative Grid Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-20 pointer-events-none" />
+
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 relative z-10">
 
