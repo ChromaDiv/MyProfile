@@ -110,26 +110,26 @@ export function Impact() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div className="grid grid-cols-3 gap-3 md:gap-6 pt-2">
               {/* PROFIT Block */}
-              <div className="p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PROFIT</span>
-                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">MBA</span>
-                <p className="text-lg text-foreground/90 leading-relaxed w-full">Business<br />Strategy<br />and<br />Supply<br />Chain<br />Optimization.</p>
+              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PROFIT</span>
+                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">MBA</span>
+                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Business<br />Strategy<br />and<br />Supply<br />Chain<br />Optimization.</p>
               </div>
 
               {/* PLANET Block */}
-              <div className="p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PLANET</span>
-                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">LEED & ESG</span>
-                <p className="text-lg text-foreground/90 leading-relaxed w-full">Sustainable<br />Infrastructure<br />and Material<br />Traceability.</p>
+              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PLANET</span>
+                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">LEED & ESG</span>
+                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Sustainable<br />Infrastructure<br />and Material<br />Traceability.</p>
               </div>
 
               {/* PEOPLE Block */}
-              <div className="p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PEOPLE</span>
-                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">QE / QA</span>
-                <p className="text-lg text-foreground/90 leading-relaxed w-full">Global<br />Ethics,<br />Precision,<br />and<br />Operational<br />Safety.</p>
+              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PEOPLE</span>
+                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">QE / QA</span>
+                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Global<br />Ethics,<br />Precision,<br />and<br />Operational<br />Safety.</p>
               </div>
             </div>
           </div>
