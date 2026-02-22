@@ -72,7 +72,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full relative">
+    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
       {/* Structural Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none opacity-30" />
 

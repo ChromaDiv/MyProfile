@@ -3,46 +3,52 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
+import {
+  Briefcase,
+  GraduationCap,
+  CheckCircle2,
+  Zap,
+  BarChart3,
+  ShieldAlert,
+  Boxes,
+  FileSearch
+} from "lucide-react";
 
 const timeline = [
   {
     role: "Supply Chain Analyst",
     company: "Government of Pakistan",
     period: "May 2020 - Jan 2026",
-    desc: (
-      <ul className="list-disc list-inside space-y-2 mt-2 text-sm md:text-base">
-        <li><strong>Strategic Sourcing & Cost Leadership:</strong> Spearheaded multimillion-dollar contract negotiations, delivering a 15% reduction in costs for the 2024 fiscal year.</li>
-        <li><strong>Operational Digitization:</strong> Developed custom data visualization and demand forecasting dashboards using React/Next.js.</li>
-        <li><strong>Supply Chain Resilience:</strong> Managed high-stakes procurement-to-delivery workflows, ensuring zero downtime.</li>
-        <li><strong>Process Optimization:</strong> Led cross-functional approvals for technical and commercial offers.</li>
-        <li><strong>Integrated Management System (IMS) Development:</strong> Conceptualized and deployed a custom software solution based on ISO 9001:2015 standards to unify departmental workflows and quality protocols.</li>
-        <li><strong>Quality Assurance Leadership:</strong> Reduced process variance by 40% through the implementation of digital SOPs and automated CAPA (Corrective and Preventive Action) tracking.</li>
-        <li><strong>Audit Optimization:</strong> Achieved a "Zero Major Non-Conformance" rating during annual audits by digitizing document control and lifecycle traceability.</li>
-      </ul>
-    ),
+    skills: ["Strategic Sourcing", "ISO 9001:2015", "Next.js", "TCO Modeling"],
+    desc: [
+      { label: "Strategic Sourcing", text: "Spearheaded multimillion-dollar contract negotiations, delivering a 15% reduction in costs for the 2024 fiscal year." },
+      { label: "Operational Digitization", text: "Developed custom data visualization and demand forecasting dashboards using React/Next.js to replace legacy tracking." },
+      { label: "Supply Chain Resilience", text: "Managed high-stakes procurement-to-delivery workflows, ensuring zero operational downtime across critical infrastructure." },
+      { label: "Integrated Management System (IMS)", text: "Conceptualized and deployed a custom software solution based on ISO 9001:2015 to unify departmental workflows." },
+      { label: "Quality Assurance", text: "Reduced process variance by 40% through digital SOPs and automated CAPA (Corrective and Preventive Action) tracking." },
+      { label: "Audit Excellence", text: "Achieved a 'Zero Major Non-Conformance' rating during annual audits by digitizing document control and lifecycle traceability." }
+    ],
   },
   {
     role: "Operations Manager",
     company: "Government of Pakistan",
     period: "May 2017 - May 2020",
-    desc: (
-      <ul className="list-disc list-inside space-y-2 mt-2 text-sm md:text-base">
-        <li><strong>Quality Assurance & Industrial Throughput:</strong> Directed daily production planning in high-pressure environments, meeting output targets consistently.</li>
-        <li><strong>Quality & Compliance:</strong> Oversaw end-to-end QC and QA protocols, ensuring 100% adherence to international standards.</li>
-        <li><strong>Asset & Resource Strategy:</strong> Optimized inventory control and preventive maintenance schedules.</li>
-      </ul>
-    ),
+    skills: ["Industrial QA", "Lean Manufacturing", "Resource Strategy"],
+    desc: [
+      { label: "Industrial Throughput", text: "Directed daily production planning in high-pressure environments, meeting output targets consistently while maintaining safety protocols." },
+      { label: "Compliance Leadership", text: "Oversaw end-to-end QC and QA protocols, ensuring 100% adherence to international manufacturing standards." },
+      { label: "Asset Strategy", text: "Optimized inventory control and preventive maintenance schedules, reducing equipment-related delays by significant margins." }
+    ],
   },
   {
     role: "Assistant Manager (Planning)",
     company: "Packages Limited",
     period: "Jan 2014 - Jul 2014",
-    desc: (
-      <ul className="list-disc list-inside space-y-2 mt-2 text-sm md:text-base">
-        <li><strong>Service Level Optimization:</strong> Maintained a 99% service level by synchronizing complex manufacturing constraints.</li>
-        <li><strong>ERP & Inventory Management:</strong> Utilized SAP for strategic material requirement analysis and real-time operational reporting.</li>
-      </ul>
-    ),
+    skills: ["SAP ERP", "Material Requirement Planning", "JIT"],
+    desc: [
+      { label: "Service Level Optimization", text: "Maintained a 99% service level by synchronizing complex manufacturing constraints with market demand." },
+      { label: "ERP & Data Integrity", text: "Utilized SAP for strategic material requirement analysis and real-time operational reporting for senior leadership." }
+    ],
   },
 ];
 
@@ -53,148 +59,157 @@ const education = [
     school: "Iqra University (IU), Pakistan",
     focus: "Sustainable Infrastructure & Global Trade Ethics",
     details: [
-      "Global Supply Chain Governance: Researched the impact of international trade policies on regional logistics, focusing on how developing markets can align with global sustainability standards (ISO/LEED).",
-      "Inclusive Infrastructure: Analyzed the socio-economic ROI of 'Green Building' initiatives in emerging economies, providing a macro-level perspective on long-term urban resilience.",
-      "Tech for Social Good (Universal Access): Explored how digital supply chain tools can bridge the 'Digital Divide,' ensuring small-scale vendor participation in global procurement networks."
+      "Global Supply Chain Governance: Researched impact of international trade policies on regional logistics and ISO/LEED alignment.",
+      "Inclusive Infrastructure: Analyzed socio-economic ROI of 'Green Building' initiatives for urban resilience.",
+      "Tech for Social Good: Explored digital supply chain tools to bridge the 'Digital Divide' for small-scale vendors."
     ]
   },
-  { degree: "MBA", year: "2021", school: "Iqra University (IU), Pakistan" },
+  { degree: "MBA (Strategic Management)", year: "2021", school: "Iqra University (IU)" },
   { degree: "BE in Mechanical Engineering", year: "2013", school: "NUST" },
   { degree: "FSc (Pre Engineering)", year: "2009", school: "Punjab College of Information Technology" },
 ];
 
 export function Experience() {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="mb-16 w-full"
-      >
-        <div className="space-y-6 text-foreground/80 leading-relaxed text-left md:text-justify w-full">
-          <p className="text-xl md:text-2xl font-outfit font-bold text-accent mb-4">
-            Strategic Supply Chain Lead | Engineering MBA | LEED Green Associate (Candidate)
-          </p>
-          <p className="text-sm md:text-base">
-            I deliver high-performance industrial systems that guarantee operational excellence. With 10+ years of cross-functional leadership in the Government of Pakistan and industrial firms like Packages Limited, I specialize in transforming complex supply chains through Lean Six Sigma methodologies, ISO-standard Quality Assurance, and Data-Driven Digitization.
-          </p>
-          <p className="text-sm md:text-base">
-            By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I offer a unique <strong>&quot;Triple Bottom Line&quot;</strong> perspective: optimizing for <strong>Profit</strong> (Supply Chain), <strong>People</strong> (Global Ethics), and <strong>Planet</strong> (Sustainability).
-          </p>
-          <p className="text-sm md:text-base">
-            Currently, I am leveraging my deep technical background and LEED candidate status to integrate sustainable frameworks into modern industrial operations. My goal is bridging the gap between operational efficiency, environmental stewardship, and scalable business ROI.
-          </p>
-        </div>
+    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-background/20 backdrop-blur-md border-y border-foreground/5">
 
-        {/* KPI Impact Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-12 w-full">
-          {[
-            { label: "Contract Value Managed", value: "$10M+" },
-            { label: "Cost Reduction Achieved", value: "15%" },
-            { label: "Service Level Maintained", value: "99%" },
-            { label: "Compliance Standards", value: "ISO & LEED" },
-          ].map((kpi, idx) => (
-            <div key={idx} className="glass p-4 md:p-6 rounded-2xl border-accent/20 text-center flex flex-col justify-center">
-              <span className="text-2xl md:text-4xl font-bold text-accent block mb-2">
-                {kpi.value}
-              </span>
-              <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/60 font-mono font-medium leading-tight">
-                {kpi.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Industrial Strategy & Operations */}
+      {/* Executive Pitch */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="mb-20 max-w-7xl"
+        viewport={{ once: true }}
+        className="mb-20"
       >
-        <h3 className="text-2xl font-semibold font-outfit mb-8 flex items-center gap-3">
-          <span className="w-8 h-[1px] bg-accent" /> Industrial Strategy & Operations
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-4xl space-y-6">
+          <h2 className="text-4xl md:text-6xl font-bold font-outfit tracking-tight text-foreground">
+            Operational <span className="text-accent italic">Leadership.</span>
+          </h2>
+          <div className="h-1 w-20 bg-accent rounded-full" />
+          <p className="text-lg md:text-2xl font-inter font-medium text-foreground/80 leading-relaxed">
+            Strategic Supply Chain Lead & NUST-trained Mechanical Engineer. I specialize in transforming
+            industrial complexity into <span className="text-accent">scalable business ROI</span> through
+            Lean methodologies and Digital Innovation.
+          </p>
+          <p className="text-base text-foreground/60 max-w-3xl">
+            With 10+ years of leadership at the Government of Pakistan and Packages Limited, I bridge
+            the gap between rigid industrial engineering and agile digital supply chains, ensuring
+            compliance with **ISO 9001** and **LEED** standards.
+          </p>
+        </div>
+
+        {/* Impact Dashboard */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {[
-            { step: "01", title: "Strategic Sourcing", desc: "Negotiating high-value contracts and cost leadership." },
-            { step: "02", title: "Process Excellence", desc: "Implementing Lean and Six Sigma frameworks." },
-            { step: "03", title: "Quality Assurance", desc: "Ensuring ISO compliance and industrial throughput." },
-            { step: "04", title: "Sustainability", desc: "LEED-aligned infrastructure and carbon tracking." }
+            { icon: <BarChart3 />, label: "Contract Spend", val: "$10M+" },
+            { icon: <Zap />, label: "Cost Reduction", val: "15%" },
+            { icon: <CheckCircle2 />, label: "Service Level", val: "99%" },
+            { icon: <ShieldAlert />, label: "Audit Rating", val: "Zero NC" }
           ].map((item, i) => (
-            <div key={i} className="glass p-6 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 font-mono text-4xl font-black text-foreground/5 transition-colors group-hover:text-accent/10">{item.step}</div>
-              <h4 className="text-lg font-bold text-accent mb-2">{item.title}</h4>
-              <p className="text-sm text-foreground/70">{item.desc}</p>
+            <div key={i} className="p-6 rounded-2xl border border-foreground/5 bg-foreground/[0.02] flex flex-col">
+              <div className="text-accent mb-4">{item.icon}</div>
+              <span className="text-3xl font-bold font-outfit">{item.val}</span>
+              <span className="text-xs font-mono uppercase tracking-widest text-foreground/40 mt-1">{item.label}</span>
             </div>
           ))}
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Timeline */}
-        <div id="experience" className="lg:col-span-2 space-y-6 scroll-mt-32">
-          <h3 className="text-2xl font-semibold font-outfit mb-6 flex items-center gap-3">
-            <span className="w-8 h-[1px] bg-accent" /> Work History
-          </h3>
-          {timeline.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: idx * 0.15, duration: 0.5 }}
-            >
-              <GlassCard className="p-6 md:p-8">
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        {/* Detailed Career Path */}
+        <div className="lg:col-span-8 space-y-16">
+          <div className="flex items-center gap-4">
+            <Briefcase className="text-accent" />
+            <h3 className="text-2xl font-bold font-outfit uppercase tracking-wider">Career Trajectory</h3>
+          </div>
+
+          <div className="space-y-20">
+            {timeline.map((job, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
                   <div>
-                    <h4 className="text-xl font-bold text-accent">{item.role}</h4>
-                    <span className="text-foreground/90 font-medium">{item.company}</span>
+                    <h4 className="text-2xl md:text-3xl font-bold font-outfit">{job.role}</h4>
+                    <p className="text-accent font-semibold flex items-center gap-2 mt-1">
+                      <Boxes size={16} /> {job.company}
+                    </p>
                   </div>
-                  <span className="text-sm font-mono px-3 py-1 bg-foreground/5 dark:bg-white/10 rounded-full w-fit">
-                    {item.period}
+                  <span className="px-4 py-1.5 rounded-full bg-foreground/5 text-[10px] font-mono font-bold uppercase tracking-tighter">
+                    {job.period}
                   </span>
                 </div>
-                <div className="text-foreground/80">{item.desc}</div>
-              </GlassCard>
-            </motion.div>
-          ))}
+
+                <div className="grid grid-cols-1 gap-6 mb-8">
+                  {job.desc.map((bullet, i) => (
+                    <div key={i} className="flex gap-4 group/item">
+                      <div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-accent group-hover/item:scale-150 transition-transform" />
+                      <div>
+                        <p className="text-sm md:text-base leading-relaxed text-foreground/80">
+                          <strong className="text-foreground">{bullet.label}:</strong> {bullet.text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {job.skills.map(skill => (
+                    <span key={skill} className="px-2 py-1 bg-accent/5 text-accent border border-accent/10 rounded text-[10px] font-mono uppercase font-bold">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* Education */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-semibold font-outfit mb-6 flex items-center gap-3">
-            <span className="w-8 h-[1px] bg-accent" /> Education
-          </h3>
-          <div className="space-y-6 relative before:absolute before:-left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-accent/40 before:to-transparent ml-4">
+        {/* Education & Research Focus */}
+        <div className="lg:col-span-4 space-y-12">
+          <div className="flex items-center gap-4">
+            <GraduationCap className="text-accent" />
+            <h3 className="text-2xl font-bold font-outfit uppercase tracking-wider">Education</h3>
+          </div>
+
+          <div className="space-y-8 relative before:absolute before:left-[-20px] before:top-4 before:bottom-4 before:w-[1px] before:bg-foreground/10">
             {education.map((edu, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: idx * 0.2, duration: 0.5 }}
-                className="relative glass p-6 md:p-8 rounded-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative"
               >
-                <h5 className="font-bold text-lg leading-tight">{edu.degree}</h5>
-                <span className="text-foreground/70 text-sm mt-2 block">{edu.school}</span>
-                <span className="text-accent text-sm font-mono mt-1 block">Class of {edu.year}</span>
-                {edu.focus && <p className="text-accent font-medium text-xs uppercase mt-3">{edu.focus}</p>}
+                <div className="absolute left-[-24px] top-2 w-2 h-2 rounded-full bg-accent border-4 border-background" />
+                <h4 className="text-lg font-bold font-outfit leading-tight">{edu.degree}</h4>
+                <p className="text-sm text-foreground/60 mt-1">{edu.school} • <span className="text-accent font-mono">{edu.year}</span></p>
+
+                {edu.focus && (
+                  <div className="mt-3 inline-flex items-center gap-2 px-2 py-0.5 bg-foreground/5 rounded text-[10px] font-bold text-foreground/40 uppercase">
+                    Focus: {edu.focus}
+                  </div>
+                )}
+
                 {edu.details && (
-                  <ul className="mt-3 space-y-1 text-xs text-foreground/60 list-disc list-inside">
+                  <div className="mt-4 space-y-3">
                     {edu.details.map((detail, i) => (
-                      <li key={i}>{detail}</li>
+                      <div key={i} className="flex gap-3">
+                        <FileSearch size={14} className="shrink-0 text-accent/40 mt-0.5" />
+                        <p className="text-[11px] leading-relaxed text-foreground/50 italic">{detail}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 )}
               </motion.div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

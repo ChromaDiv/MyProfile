@@ -4,92 +4,110 @@ import * as React from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { FileText, ArrowRight, Settings, Cpu, Leaf } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
   },
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
   visible: {
     opacity: 1, y: 0, filter: "blur(0px)",
-    transition: { type: "spring", damping: 20, stiffness: 100 },
+    transition: { type: "spring", damping: 25, stiffness: 120 },
   },
 };
 
 export function Hero() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 dark:bg-accent/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-slate-500/10 dark:bg-slate-900/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+      {/* Tactical Background Elements */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-accent/5 dark:bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      {/* Animated Floating Markers (HUD Style) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none select-none">
+        <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 left-1/4 text-[10px] font-mono text-foreground/20 uppercase tracking-widest border-l border-t border-foreground/20 p-2">
+          System_Ref: 2026.SL
+        </motion.div>
+        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} className="absolute bottom-1/4 right-1/4 text-[10px] font-mono text-foreground/20 uppercase tracking-widest border-r border-b border-foreground/20 p-2 text-right">
+          Status: Operational_Impact
+        </motion.div>
+      </div>
 
       <motion.div
-        className="max-w-4xl mx-auto text-center space-y-8 z-10"
+        className="max-w-6xl mx-auto flex flex-col items-center z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={childVariants} className="inline-flex flex-col items-center gap-6">
-          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full p-1 border border-accent/30 bg-accent/5 backdrop-blur-md shadow-[0_0_40px_rgba(16,185,129,0.15)] group">
-            <div className="w-full h-full rounded-full overflow-hidden relative">
-              <Image
-                src="/profile.JPG"
-                alt="Sohaib Latif"
-                fill
-                priority
-                className="object-cover object-top hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 160px, 208px"
-              />
-            </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent/20 to-transparent mix-blend-overlay pointer-events-none" />
+        {/* Profile Image with Dynamic Border */}
+        <motion.div variants={childVariants} className="relative mb-10 group">
+          <div className="relative w-36 h-36 md:w-48 md:h-48 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500 overflow-hidden border border-accent/20 bg-background shadow-2xl">
+            <Image
+              src="/profile.JPG"
+              alt="Sohaib Latif"
+              fill
+              priority
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 144px, 192px"
+            />
           </div>
-
-          <span className="px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium tracking-wide">
-            Portfolio 2026
-          </span>
+          {/* Decorative Corner Accents */}
+          <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-accent/40 rounded-tl-lg" />
+          <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-accent/40 rounded-br-lg" />
         </motion.div>
 
-        <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold font-outfit tracking-tight leading-tight flex flex-col items-center justify-center gap-y-2 md:gap-y-4"
-        >
-          <div className="flex flex-wrap justify-center gap-x-[0.25em]">
-            {"Sohaib Latif".split(" ").map((word, i) => (
-              <motion.span key={i} variants={childVariants} className="inline-block">
-                {word}
-              </motion.span>
-            ))}
-          </div>
-          <motion.span
-            variants={childVariants}
-            className="block text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#00f2ff] dark:from-sky-400 dark:to-[#00f2ff] text-2xl sm:text-3xl md:text-4xl px-4"
-          >
-            Strategic Supply Chain Lead
-          </motion.span>
-        </motion.h1>
+        {/* Badge Metadata */}
+        <motion.div variants={childVariants} className="flex flex-wrap justify-center gap-3 mb-8">
+          {[
+            { icon: <Settings size={12} />, label: "NUST Engineering" },
+            { icon: <Cpu size={12} />, label: "MBA Leadership" },
+            { icon: <Leaf size={12} />, label: "LEED Green Associate" }
+          ].map((tag, i) => (
+            <span key={i} className="flex items-center gap-2 px-3 py-1 rounded-md border border-foreground/10 bg-foreground/5 text-[10px] font-mono font-bold uppercase tracking-widest text-foreground/60">
+              <span className="text-accent">{tag.icon}</span>
+              {tag.label}
+            </span>
+          ))}
+        </motion.div>
 
+        {/* Name & Title */}
+        <motion.div variants={childVariants} className="text-center mb-6">
+          <h1 className="text-5xl md:text-8xl font-black font-outfit tracking-tighter leading-[0.9] mb-4">
+            SOHAIB <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-400">LATIF</span>
+          </h1>
+          <p className="text-xl md:text-3xl font-medium font-outfit text-foreground/80 tracking-tight">
+            Strategic Supply Chain Lead
+          </p>
+        </motion.div>
+
+        {/* Impact Subtitle */}
         <motion.p
           variants={childVariants}
-          className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto font-light leading-relaxed"
+          className="text-base md:text-xl text-foreground/50 max-w-2xl text-center font-inter leading-relaxed mb-10"
         >
-          Engineering MBA | LEED Green Associate (Candidate)
-          <br />
-          <span className="text-base md:text-lg font-medium text-accent/90 block mt-2">
-            Bridging the gap between Industrial Engineering, Global Logistics, and Sustainable Infrastructure.
-          </span>
+          Architecting resilient global logistics networks by bridging the gap between <span className="text-foreground font-semibold italic">Industrial Intelligence</span> and <span className="text-foreground font-semibold italic">Sustainable ROI</span>.
         </motion.p>
 
-        <motion.div variants={childVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <Button size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
-            View My Solutions
+        {/* CTA Actions */}
+        <motion.div variants={childVariants} className="flex flex-col sm:flex-row items-center gap-5">
+          <Button
+            size="lg"
+            className="rounded-full px-8 h-14 bg-accent hover:bg-emerald-600 text-black font-bold group"
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Operational Systems
+            <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="outline">
-              Download Resume
+            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 border-foreground/10 bg-transparent hover:bg-foreground/5 font-bold group">
+              <FileText size={18} className="mr-2 opacity-60 group-hover:opacity-100" />
+              Technical Resume
             </Button>
           </a>
         </motion.div>

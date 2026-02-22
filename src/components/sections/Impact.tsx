@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -10,17 +10,17 @@ import * as THREE from "three";
 import * as random from "maath/random/dist/maath-random.esm";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { useTheme } from "next-themes";
+import { Globe, Users, Leaf, TrendingUp } from "lucide-react";
 
 function GlobalImpactGlobe() {
   const { theme } = useTheme();
   const ref = useRef<THREE.Points>(null);
-  // Generate 5000 points (x, y, z) inside a sphere shape
-  const [sphere] = useState(() => random.inSphere(new Float32Array(15000), { radius: 2 }) as Float32Array);
+  const [sphere] = useState(() => random.inSphere(new Float32Array(9000), { radius: 1.5 }) as Float32Array);
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      ref.current.rotation.y += delta / 20;
+      ref.current.rotation.x += delta / 30;
     }
   });
 
@@ -28,10 +28,10 @@ function GlobalImpactGlobe() {
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
-          transparent={theme === "dark"}
-          opacity={1}
-          color={theme === "light" ? "#064e3b" : "#10b981"} // Extremely dark green for max contrast in light mode
-          size={theme === "light" ? 0.025 : 0.015} // Slightly larger in light mode to stand out
+          transparent
+          opacity={theme === "dark" ? 0.4 : 0.2}
+          color={theme === "light" ? "#064e3b" : "#10b981"}
+          size={0.015}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -43,128 +43,125 @@ function GlobalImpactGlobe() {
 const dimensions = [
   {
     category: "Profit (SCM & Efficiency)",
+    icon: <TrendingUp className="w-5 h-5" />,
     angle: "Resource management is the heart of profitability.",
-    text: "I apply Lean Manufacturing and Six Sigma frameworks to the operational lifecycle. My focus is on reducing operational waste and streamlining procurement workflows to maximize scalable business ROI.",
+    text: "Applying Lean Manufacturing and Six Sigma to the operational lifecycle, focusing on reducing waste and streamlining procurement for scalable ROI.",
+    color: "emerald"
   },
   {
     category: "People (Ethics & Inclusivity)",
+    icon: <Users className="w-5 h-5" />,
     angle: "Global supply chains require ethical governance.",
-    text: "My MPhil research in International Development informs a commitment to Universal Design and local community impact, ensuring global trade networks are inclusive and socially responsible.",
+    text: "Commitment to Universal Design and local community impact, ensuring global trade networks are inclusive and socially responsible.",
+    color: "blue"
   },
   {
     category: "Planet (LEED & Sustainability)",
+    icon: <Leaf className="w-5 h-5" />,
     angle: "Sustainability is a quality and compliance metric.",
-    text: "I specialize in architecting LEED-aligned frameworks that balance high performance with minimal environmental impact, transforming 'green' goals into measurable industrial intelligence.",
+    text: "Architecting LEED-aligned frameworks that balance performance with minimal environmental impact, transforming 'green' goals into intelligence.",
+    color: "teal"
   }
 ];
 
 export function Impact() {
-  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  // Parallax for the visual container
-  const yParallax = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const globeOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 1, 0.2]);
 
   return (
-    <section ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold font-outfit mb-4 text-emerald-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-emerald-400 dark:to-emerald-200">
-          ESG & Sustainable Impact
-        </h2>
-        <p className="text-foreground/70 max-w-2xl mx-auto">
-          Modern supply chains are no longer just about moving goods; they are about moving them ethically and sustainably. I bridge the intersection of Engineering, Business, and Humanity.
-        </p>
-      </motion.div>
+    <section ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative w-full overflow-hidden bg-background/20 backdrop-blur-md border-y border-foreground/5">
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-        {/* Left Column: The Triple Bottom Line Visual */}
-        <motion.div
-          style={{ y: yParallax }}
-          className="relative rounded-3xl overflow-hidden glass border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)] min-h-fit md:min-h-[600px] lg:min-h-[750px] flex flex-col"
-        >
-          <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-background via-emerald-50/50 to-emerald-100/50 dark:via-[#050a05] dark:to-emerald-900/10" />
+      {/* Background Subtle Globe Decoration */}
+      <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-50 z-0">
+        <Canvas camera={{ position: [0, 0, 4] }}>
+          <GlobalImpactGlobe />
+        </Canvas>
+      </div>
 
-          <div className="flex-1 p-6 md:p-10 lg:p-12 flex flex-col justify-center space-y-10 bg-white/40 dark:bg-[#050a05]/50 backdrop-blur-xl">
-            <div className="space-y-8">
-              <h4 className="text-3xl md:text-5xl font-bold font-outfit text-emerald-700 dark:text-emerald-400 leading-tight">The Triple Bottom Line<br />Framework</h4>
+      <div className="relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 items-start">
 
-              <p className="text-base md:text-xl text-foreground/80 leading-relaxed italic border-l-4 border-emerald-500 pl-6 py-1 font-inter max-w-2xl">
-                "By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I optimize for the Triple Bottom Line: Profit, People, and Planet."
-              </p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3 md:gap-6 pt-2">
-              {/* PROFIT Block */}
-              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PROFIT</span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">MBA</span>
-                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Business<br />Strategy<br />and<br />Supply<br />Chain<br />Optimization.</p>
-              </div>
-
-              {/* PLANET Block */}
-              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PLANET</span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">LEED & ESG</span>
-                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Sustainable<br />Infrastructure<br />and Material<br />Traceability.</p>
-              </div>
-
-              {/* PEOPLE Block */}
-              <div className="p-4 sm:p-5 md:p-8 rounded-2xl border border-emerald-500/20 dark:border-white/5 bg-white/50 dark:bg-background/20 hover:bg-white/60 dark:hover:bg-white/5 transition-colors duration-300">
-                <span className="text-emerald-700 dark:text-emerald-400 font-bold block mb-4 md:mb-6 text-sm sm:text-lg md:text-xl tracking-wide">PEOPLE</span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-foreground/60 block mb-4 md:mb-6 font-mono font-medium">QE / QA</span>
-                <p className="text-xs sm:text-sm md:text-lg text-foreground/90 leading-relaxed md:leading-relaxed w-full">Global<br />Ethics,<br />Precision,<br />and<br />Operational<br />Safety.</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Column: Strategic Dimensions */}
-        <div className="space-y-6">
-          <div className="mb-8 p-6 glass rounded-2xl border-emerald-500/20">
-            <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-[0.2em] font-bold">Global Perspective: ESG & Sustainable Impact</span>
-            <p className="text-foreground/80 mt-2 text-sm leading-relaxed">
-              Modern supply chains are no longer just about moving goods; they are about moving them ethically and sustainably. My academic background in International Development allows me to navigate the complex regulatory landscapes of global trade, ensuring that procurement strategies are not only cost-effective but also socially responsible and LEED-compliant.
-            </p>
-          </div>
-
-          {dimensions.map((dim, idx) => (
+          {/* Left Side: The "Mission" Statement */}
+          <div className="lg:w-5/12 sticky top-24">
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: idx * 0.15, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-6"
             >
-              <GlassCard className="p-6 md:p-8 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] group transition-all duration-500">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-500 uppercase tracking-[0.15em] mb-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                    {dim.category}
-                  </span>
-                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-50 transition-colors">
-                    &quot;{dim.angle}&quot;
-                  </h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed">{dim.text}</p>
-                </div>
-              </GlassCard>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <Globe className="w-3 h-3 text-emerald-500" />
+                <span className="text-[10px] font-mono font-bold text-emerald-600 uppercase tracking-widest">Global ESG Strategy</span>
+              </div>
+
+              <h2 className="text-4xl md:text-6xl font-bold font-outfit tracking-tight leading-[1.1]">
+                Bridging Engineering & <span className="text-emerald-500">Humanity.</span>
+              </h2>
+
+              <p className="text-lg text-foreground/70 leading-relaxed font-inter">
+                Modern supply chains are no longer just about moving goods; they are about moving them ethically and sustainably.
+              </p>
+
+              <div className="p-6 rounded-3xl bg-emerald-500/5 border border-emerald-500/10 italic text-foreground/80 relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500" />
+                "By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I optimize for the Triple Bottom Line."
+              </div>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Right Side: Interactive Dimensions */}
+          <div className="lg:w-7/12 space-y-4 w-full">
+            <div className="grid grid-cols-1 gap-4">
+              {dimensions.map((dim, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <GlassCard className="p-1 px-1 overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
+                    <div className="flex flex-col md:flex-row items-stretch gap-0 md:gap-6">
+                      {/* Icon/Category Sidebar */}
+                      <div className="md:w-1/4 p-6 flex flex-col justify-between items-start border-b md:border-b-0 md:border-r border-foreground/5 bg-foreground/[0.02]">
+                        <div className="p-3 rounded-2xl bg-background border border-foreground/10 text-emerald-500 group-hover:scale-110 transition-transform">
+                          {dim.icon}
+                        </div>
+                        <span className="text-[10px] font-mono font-bold text-foreground/40 mt-4 uppercase tracking-tighter">
+                          {dim.category.split(' ')[0]}
+                        </span>
+                      </div>
+
+                      {/* Content Area */}
+                      <div className="md:w-3/4 p-6 md:p-8">
+                        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-emerald-500 transition-colors">
+                          &quot;{dim.angle}&quot;
+                        </h3>
+                        <p className="text-sm text-foreground/60 leading-relaxed">
+                          {dim.text}
+                        </p>
+                      </div>
+                    </div>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Matrix Highlight */}
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              {['PROFIT', 'PLANET', 'PEOPLE'].map((item) => (
+                <div key={item} className="text-center p-4 rounded-2xl border border-foreground/5 bg-foreground/[0.02]">
+                  <span className="text-[10px] font-mono text-foreground/40 tracking-[0.2em]">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
