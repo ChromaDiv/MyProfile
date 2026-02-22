@@ -56,10 +56,10 @@ export function Navbar() {
           marginTop: navMarginTop,
         }}
         className={cn(
-          "relative z-50 flex items-center justify-between pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30 transition-colors duration-500",
+          "relative z-50 flex items-center justify-between pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] hover:border-accent/20 dark:hover:border-accent/30 transition-colors duration-500",
           isScrolled
-            ? "px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-blue-500/20"
-            : "px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10"
+            ? "px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/60 dark:bg-background/40 backdrop-blur-3xl border-foreground/5 dark:border-blue-500/10"
+            : "px-6 md:px-8 shadow-xl bg-background/30 dark:bg-background/10 backdrop-blur-2xl border-foreground/5 dark:border-white/5"
         )}>
         {/* Logo */}
         <Link href="/" className="relative z-10 group flex items-center gap-1 flex-shrink-0">

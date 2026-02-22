@@ -70,9 +70,9 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-foreground/[0.02] border border-foreground/5 hover:border-accent/40 transition-all duration-500 group"
+              className="p-8 rounded-3xl bg-white/40 dark:bg-background/40 border border-foreground/5 hover:border-accent/40 transition-all duration-500 group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-12 h-12 rounded-2xl bg-white/80 dark:bg-background/60 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
                 {tier.icon}
               </div>
               <h3 className="text-xl font-bold mb-8 text-foreground tracking-tight">{tier.category}</h3>
@@ -112,7 +112,7 @@ export function Skills() {
             <p className="text-xs font-mono text-foreground/40 uppercase tracking-widest">Efficiency / Sustainability / ROI</p>
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-foreground/5 bg-foreground/[0.01] backdrop-blur-sm">
+          <div className="overflow-hidden rounded-3xl border border-foreground/5 bg-white/60 dark:bg-background/40 backdrop-blur-sm">
             <table className="w-full text-left border-collapse">
               <thead className="hidden md:table-header-group">
                 <tr className="border-b border-foreground/5 text-foreground/40 text-[10px] uppercase tracking-[0.3em] font-mono">
@@ -139,7 +139,7 @@ export function Skills() {
                     </td>
                     <td className="py-8 px-10">
                       <div className="flex items-center gap-3">
-                        <span className="px-3 py-1 rounded-full bg-accent/10 text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20">
+                        <span className="px-3 py-1 rounded-full bg-white/80 dark:bg-background/60 text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20">
                           {row.res}
                         </span>
                         <span className="text-xs text-foreground/40">{row.detail}</span>

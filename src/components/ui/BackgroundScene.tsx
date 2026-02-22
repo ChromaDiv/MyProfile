@@ -1,17 +1,15 @@
 "use client";
 
 import { useRef, useMemo, useState, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from 'next-themes';
 
 function KineticOrb({ color, position, size, speed, distort }: { color: string, position: [number, number, number], size: number, speed: number, distort: number }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-
   return (
     <Float speed={speed * 2} rotationIntensity={0.5} floatIntensity={1}>
-      <Sphere ref={meshRef} args={[size, 64, 64]} position={position}>
+      <Sphere args={[size, 64, 64]} position={position}>
         <MeshDistortMaterial
           color={color}
           speed={speed}
@@ -35,51 +33,39 @@ export function BackgroundScene() {
   useEffect(() => setMounted(true), []);
 
   const colors = useMemo(() => ({
-    // Professional Blue and Cyan accents
     cyan: "#06b6d4",
     blue: isDark ? "#3b82f6" : "#2563eb",
-    slate: isDark ? "#0f172a" : "#f8fafc"
   }), [isDark]);
 
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none bg-background transition-colors duration-1000 overflow-hidden">
-      {/* Texture: High-end Grain Overlay */}
-      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.1] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-10 pointer-events-none" />
 
-      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 10], fov: 45 }}>
-        {/* Swapped point light focus to match color interchange */}
-        <ambientLight intensity={isDark ? 0.6 : 1.2} />
-        <pointLight position={[10, 10, 10]} intensity={2.5} color={colors.blue} />
-        <pointLight position={[-10, -10, -10]} color="#3b82f6" intensity={1} />
+    <div className="fixed inset-0 z-[-1] pointer-events-none bg-background/20 dark:bg-background/20 transition-colors duration-1000 overflow-hidden">
 
-        <group>
-          {/* Now the Blue Orb is the Main Strategic Focus (Right Side) */}
-          <KineticOrb
-            color={colors.blue}
-            position={[-5, 3, -4]}
-            size={2.4}
-            speed={1.1}
-            distort={0.35}
-          />
+      {/* 1. 3D ORBS LAYER */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 10], fov: 45 }}>
+          <ambientLight intensity={isDark ? 0.6 : 1.2} />
+          <pointLight position={[10, 10, 10]} intensity={2.5} color={colors.blue} />
+          <group>
+            <KineticOrb color={colors.blue} position={[-5, 3, -4]} size={2.4} speed={1.1} distort={0.35} />
+            <KineticOrb color={colors.cyan} position={[4.5, -1, -1]} size={1.6} speed={0.9} distort={0.4} />
+          </group>
+        </Canvas>
+      </div>
 
-          {/* Now the Cyan Orb is the Secondary Accent (Top Left) */}
-          <KineticOrb
-            color={colors.cyan}
-            position={[4.5, -1, -1]}
-            size={1.6}
-            speed={0.9}
-            distort={0.4}
-          />
-        </group>
-      </Canvas>
+      {/* 2. THE BLUR (Reduced intensity to prevent "washing out" the default lines) */}
+      <div className="absolute inset-0 backdrop-blur-[40px] pointer-events-none z-10" />
 
-      {/* Modern Glass Layer - Balanced for visibility */}
-      <div className="absolute inset-0 backdrop-blur-[55px] pointer-events-none z-[1]" />
+      {/* 3. THE ANALYTICS HUD (REMOVED) */}
 
-      {/* Subtle Vignette for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,var(--background)_100%)] opacity-90 pointer-events-none" />
+
+      {/* 4. VIGNETTE (Adjusted to be transparent in the center) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,var(--background)_110%)] opacity-60 z-30" />
+
+      {/* 5. GRAIN TEXTURE */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-40 pointer-events-none" />
     </div>
   );
 }

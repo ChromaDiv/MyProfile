@@ -17,7 +17,7 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         whileHover={hoverEffect ? { y: -8, scale: 1.02 } : undefined}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className={cn(
-          "bg-foreground/5 dark:bg-white/5 backdrop-blur-lg border border-foreground/10 dark:border-white/10 hover:border-accent/50 transition-all duration-500 shadow-xl rounded-2xl p-6 relative group z-10",
+          "bg-white/40 dark:bg-background/60 backdrop-blur-xl border border-foreground/10 dark:border-white/10 hover:border-accent/50 transition-all duration-500 shadow-xl rounded-2xl p-6 relative group z-10",
           className
         )}
         {...props}

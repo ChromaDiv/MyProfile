@@ -21,7 +21,7 @@ const AnimatedBot = ({ isProcessing = false }: { isProcessing?: boolean }) => {
     <motion.div
       animate={{ y: [0, -3, 0] }}
       transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-      className={`relative w-8 h-8 min-w-[32px] rounded-full flex items-center justify-center bg-accent/20 border border-accent/20 ${isProcessing ? "shadow-[0_0_15px_rgba(16,185,129,0.5)]" : ""
+      className={`relative w-8 h-8 min-w-[32px] rounded-full flex items-center justify-center bg-accent/20 border border-accent/20 ${isProcessing ? "shadow-[0_0_15px_rgba(59,130,246,0.5)]" : ""
         }`}
     >
       <div className="w-4 h-3 bg-accent/40 rounded-sm relative flex items-center justify-center gap-1 overflow-hidden">
@@ -142,7 +142,7 @@ export function AIAssistant() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => { setIsOpen(true); setHasOpened(true); }}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-2 py-2 pr-5 rounded-full bg-background/90 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-accent/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 group overflow-hidden"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-2 py-2 pr-5 rounded-full bg-background/90 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-accent/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500 group overflow-hidden"
           >
             {/* Subtle inner hover glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -152,7 +152,7 @@ export function AIAssistant() {
               {!hasOpened && (
                 <span className="absolute -top-1 -right-1 flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-accent shadow-[0_0_5px_rgba(16,185,129,1)]"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-accent shadow-[0_0_5px_rgba(59,130,246,1)]"></span>
                 </span>
               )}
             </div>
