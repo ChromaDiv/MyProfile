@@ -101,33 +101,35 @@ export function Impact() {
         >
           <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-background via-emerald-50/50 to-emerald-100/50 dark:via-[#050a05] dark:to-emerald-900/10" />
 
-          <div className="flex-1 p-6 md:p-10 lg:p-12 flex flex-col justify-center space-y-8 bg-white/40 dark:bg-emerald-950/20 backdrop-blur-md">
-            <h4 className="text-3xl md:text-4xl font-bold font-outfit text-emerald-700 dark:text-emerald-300">The Triple Bottom Line Framework</h4>
+          <div className="flex-1 p-6 md:p-10 lg:p-12 flex flex-col justify-center space-y-10 bg-[#050a05]/50 backdrop-blur-xl">
+            <div className="space-y-8">
+              <h4 className="text-3xl md:text-5xl font-bold font-outfit text-emerald-400 leading-tight">The Triple Bottom Line<br />Framework</h4>
 
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed italic border-l-4 border-emerald-500 pl-5 py-2 font-inter">
-              &quot;By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I optimize for the Triple Bottom Line: Profit, People, and Planet.&quot;
-            </p>
+              <p className="text-base md:text-xl text-foreground/80 leading-relaxed italic border-l-4 border-emerald-500 pl-6 py-1 font-inter max-w-2xl">
+                "By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I optimize for the Triple Bottom Line: Profit, People, and Planet."
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               {/* PROFIT Block */}
-              <div className="p-6 glass rounded-2xl border-white/20 dark:border-emerald-500/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all bg-background/50 dark:bg-[#080d08]/80">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-4 text-xl tracking-wide">PROFIT</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-foreground/50 block mb-4 font-mono font-medium">MBA</span>
-                <p className="text-base text-foreground/90 leading-relaxed">Business Strategy and<br />Supply Chain<br />Optimization.</p>
+              <div className="p-8 rounded-2xl border border-white/10 dark:border-white/5 bg-background/20 hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PROFIT</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">MBA</span>
+                <p className="text-lg text-foreground/90 leading-relaxed max-w-[150px]">Business<br />Strategy<br />and<br />Supply<br />Chain<br />Optimization.</p>
               </div>
 
               {/* PLANET Block */}
-              <div className="p-6 glass rounded-2xl border-white/20 dark:border-emerald-500/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all bg-background/50 dark:bg-[#080d08]/80">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-4 text-xl tracking-wide">PLANET</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-foreground/50 block mb-4 font-mono font-medium">LEED & ESG</span>
-                <p className="text-base text-foreground/90 leading-relaxed">Sustainable<br />Infrastructure<br />and Material<br />Traceability.</p>
+              <div className="p-8 rounded-2xl border border-white/10 dark:border-white/5 bg-background/20 hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PLANET</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">LEED & ESG</span>
+                <p className="text-lg text-foreground/90 leading-relaxed max-w-[150px]">Sustainable<br />Infrastructure<br />and Material<br />Traceability.</p>
               </div>
 
               {/* PEOPLE Block */}
-              <div className="p-6 glass rounded-2xl border-white/20 dark:border-emerald-500/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all bg-background/50 dark:bg-[#080d08]/80">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-4 text-xl tracking-wide">PEOPLE</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-foreground/50 block mb-4 font-mono font-medium">QE / QA</span>
-                <p className="text-base text-foreground/90 leading-relaxed">Global Ethics,<br />Precision, and<br />Operational<br />Safety.</p>
+              <div className="p-8 rounded-2xl border border-white/10 dark:border-white/5 bg-background/20 hover:bg-white/5 transition-colors duration-300">
+                <span className="text-emerald-400 font-bold block mb-6 text-xl tracking-wide">PEOPLE</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-foreground/60 block mb-6 font-mono font-medium">QE / QA</span>
+                <p className="text-lg text-foreground/90 leading-relaxed max-w-[150px]">Global<br />Ethics,<br />Precision,<br />and<br />Operational<br />Safety.</p>
               </div>
             </div>
           </div>
