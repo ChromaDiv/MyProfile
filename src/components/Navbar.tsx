@@ -26,7 +26,7 @@ export function Navbar() {
   React.useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 150);
+      setIsScrolled(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -34,14 +34,14 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500 pointer-events-none"
     >
       <motion.div
         layout
-        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+        transition={{ type: "spring", stiffness: 100, damping: 25 }}
         className={cn(
           "relative z-50 flex items-center justify-between w-full pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30",
           isScrolled
