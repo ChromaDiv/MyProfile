@@ -49,17 +49,17 @@ export function Navbar() {
             : "max-w-6xl mt-6 py-4 px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10 transition-colors duration-500"
         )}>
         {/* Logo */}
-        <Link href="/" className="relative z-10 group flex items-center gap-1">
+        <Link href="/" className="relative z-10 group flex items-center gap-1 flex-shrink-0">
           <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
             <span className="font-outfit text-sm font-bold text-accent">SL</span>
           </div>
-          <span className="font-outfit text-xl font-bold tracking-tighter transition-colors group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-purple-500 ml-1">
+          <span className="font-outfit text-xl font-bold tracking-tighter transition-colors group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-purple-500 ml-1 whitespace-nowrap">
             Sohaib<span className="text-accent group-hover:text-transparent">.</span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2 relative">
+        <nav className="hidden md:flex items-center gap-2 relative flex-shrink-0">
           {navLinks.map((link, index) => (
             <Link
               key={link.name}
@@ -67,7 +67,7 @@ export function Navbar() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
+                "relative px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap flex-shrink-0",
                 hoveredIndex === index ? "text-foreground" : "text-foreground/70"
               )}
             >
@@ -87,7 +87,7 @@ export function Navbar() {
         </nav>
 
         {/* Actions & Mobile Toggle */}
-        <div className="flex items-center gap-4 relative z-10">
+        <div className="flex items-center gap-4 relative z-10 flex-shrink-0">
           <div className="hidden md:flex items-center flex-row gap-3 mr-2 border-r border-foreground/10 dark:border-white/10 pr-4">
             <motion.a
               whileHover={{ y: -2 }}
