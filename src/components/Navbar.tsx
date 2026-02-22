@@ -26,7 +26,7 @@ export function Navbar() {
   React.useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 150);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -39,12 +39,15 @@ export function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500 pointer-events-none"
     >
-      <div className={cn(
-        "relative z-50 flex items-center justify-between transition-all duration-500 w-full pointer-events-auto",
-        isScrolled
-          ? "max-w-4xl mt-2 md:mt-4 py-3 px-5 md:px-6 glass rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/80 dark:bg-[#050a05]/80 backdrop-blur-3xl border border-foreground/10 dark:border-emerald-500/20"
-          : "max-w-7xl mt-0 py-4 md:py-6 px-4 md:px-8 bg-transparent border-transparent"
-      )}>
+      <motion.div
+        layout
+        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+        className={cn(
+          "relative z-50 flex items-center justify-between w-full pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30",
+          isScrolled
+            ? "max-w-4xl mt-4 py-3 px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-emerald-500/20 transition-colors duration-500"
+            : "max-w-6xl mt-6 py-4 px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10 transition-colors duration-500"
+        )}>
         {/* Logo */}
         <Link href="/" className="relative z-10 group flex items-center gap-1">
           <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
@@ -115,7 +118,7 @@ export function Navbar() {
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Nav Overlay */}
       <AnimatePresence>
