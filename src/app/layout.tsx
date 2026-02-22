@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BackgroundScene } from "@/components/ui/BackgroundScene";
+import { AIAssistant } from "@/components/ui/AIAssistant";
 import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -33,6 +34,7 @@ export default function RootLayout({
           <BackgroundScene />
           <Navbar />
           {children}
+          <AIAssistant />
           <Footer />
         </ThemeProvider>
       </body>
