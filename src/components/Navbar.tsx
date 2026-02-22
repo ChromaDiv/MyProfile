@@ -40,13 +40,20 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       <motion.div
-        layout
-        transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
+        initial={false}
+        animate={{
+          width: isScrolled ? "896px" : "1280px",
+          maxWidth: "100%",
+          paddingTop: isScrolled ? "12px" : "16px",
+          paddingBottom: isScrolled ? "12px" : "16px",
+          marginTop: isScrolled ? "16px" : "24px",
+        }}
+        transition={{ type: "spring", stiffness: 80, damping: 20 }}
         className={cn(
-          "relative z-50 flex items-center justify-between w-full pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30",
+          "relative z-50 flex items-center justify-between pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30 transition-colors duration-500",
           isScrolled
-            ? "max-w-4xl mt-4 py-3 px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-emerald-500/20 transition-colors duration-500"
-            : "max-w-6xl mt-6 py-4 px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10 transition-colors duration-500"
+            ? "px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-emerald-500/20"
+            : "px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10"
         )}>
         {/* Logo */}
         <Link href="/" className="relative z-10 group flex items-center gap-1 flex-shrink-0">
