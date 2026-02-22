@@ -24,7 +24,7 @@ const childVariants: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center pt-32 md:pt-40 pb-16 px-6 overflow-hidden">
+    <section id="about" className="relative min-h-screen w-full flex items-center justify-center pt-32 md:pt-40 pb-16 px-6 overflow-hidden">
       {/* Tactical Background Elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-accent/5 dark:bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
