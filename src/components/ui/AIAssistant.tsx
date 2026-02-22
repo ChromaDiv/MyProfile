@@ -139,12 +139,13 @@ export function AIAssistant() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1, rotate: [0, -10, 10, -10, 0] }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => { setIsOpen(true); setHasOpened(true); }}
-            className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-accent text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-shadow border border-accent/20"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-accent text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-shadow border border-accent/20 group"
           >
-            <MessageCircle size={28} />
+            <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" />
+            <span className="font-outfit font-medium text-sm whitespace-nowrap pr-1">Chat with AI</span>
             {!hasOpened && (
               <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
