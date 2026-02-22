@@ -130,87 +130,93 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] md:w-[380px] h-[550px] max-h-[85vh] flex flex-col overflow-hidden shadow-2xl border border-white/20 dark:border-accent/20 bg-background/95 backdrop-blur-2xl rounded-2xl"
+            className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] md:w-[380px] h-[550px] max-h-[85vh] flex flex-col shadow-2xl bg-background/95 backdrop-blur-2xl rounded-2xl group border border-foreground/10 dark:border-white/10 hover:border-accent/50 transition-all duration-500"
           >
-            {/* Header */}
-            <div className="flex-none items-center justify-between p-4 border-b border-foreground/10 bg-accent/5 flex">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                  <Bot size={18} />
-                </div>
-                <div>
-                  <h3 className="font-bold font-outfit text-sm text-foreground">AI Assistant</h3>
-                  <p className="text-[10px] text-accent font-mono uppercase tracking-wider">Online</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-foreground/5 text-foreground/50 hover:text-foreground transition-colors"
-              >
-                <X size={18} />
-              </button>
-            </div>
+            {/* Subtle gradient overlay on hover mimicking GlassCard */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-accent to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-1000 pointer-events-none" />
 
-            {/* Messages Container */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth">
-              {messages.map((msg) => (
-                <motion.div
-                  key={msg.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
-                >
-                  <div className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center ${msg.role === 'user' ? 'bg-foreground/10 text-foreground/70' : 'bg-accent/20 text-accent'}`}>
-                    {msg.role === 'user' ? <User size={16} /> : <Bot size={16} />}
-                  </div>
-
-                  <div className={`px-4 py-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${msg.role === 'user'
-                    ? 'bg-foreground/10 text-foreground rounded-tr-sm'
-                    : 'bg-accent/10 border border-accent/10 text-foreground/90 rounded-tl-sm'
-                    }`}>
-                    {msg.content}
-                  </div>
-                </motion.div>
-              ))}
-
-              {isLoading && (
-                <motion.div
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  className="flex gap-3"
-                >
+            {/* Inner Content Wrapper */}
+            <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
+              {/* Header */}
+              <div className="flex-none items-center justify-between p-4 border-b border-foreground/10 bg-accent/5 flex">
+                <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                    <Bot size={16} />
+                    <Bot size={18} />
                   </div>
-                  <div className="px-5 py-4 rounded-2xl bg-accent/5 border border-accent/10 rounded-tl-sm flex gap-1">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "300ms" }} />
+                  <div>
+                    <h3 className="font-bold font-outfit text-sm text-foreground">AI Assistant</h3>
+                    <p className="text-[10px] text-accent font-mono uppercase tracking-wider">Online</p>
                   </div>
-                </motion.div>
-              )}
-
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input Footer */}
-            <div className="mt-auto p-4 border-t border-foreground/10 bg-background flex-none">
-              <form onSubmit={handleSend} className="relative flex items-center">
-                <input
-                  type="text"
-                  value={inputVal}
-                  onChange={(e) => setInputVal(e.target.value)}
-                  placeholder="Ask about Sohaib's experience..."
-                  disabled={isLoading}
-                  className="w-full bg-foreground/5 border border-foreground/10 rounded-full pl-5 pr-12 py-3 text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all disabled:opacity-50"
-                />
+                </div>
                 <button
-                  type="submit"
-                  disabled={!inputVal.trim() || isLoading}
-                  className="absolute right-2 p-2 rounded-full bg-accent text-white hover:bg-emerald-500 disabled:opacity-50 disabled:hover:bg-accent transition-colors"
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 rounded-full hover:bg-foreground/5 text-foreground/50 hover:text-foreground transition-colors"
                 >
-                  {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+                  <X size={18} />
                 </button>
-              </form>
+              </div>
+
+              {/* Messages Container */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth">
+                {messages.map((msg) => (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                  >
+                    <div className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center ${msg.role === 'user' ? 'bg-foreground/10 text-foreground/70' : 'bg-accent/20 text-accent'}`}>
+                      {msg.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+                    </div>
+
+                    <div className={`px-4 py-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${msg.role === 'user'
+                      ? 'bg-foreground/10 text-foreground rounded-tr-sm'
+                      : 'bg-accent/10 border border-accent/10 text-foreground/90 rounded-tl-sm'
+                      }`}>
+                      {msg.content}
+                    </div>
+                  </motion.div>
+                ))}
+
+                {isLoading && (
+                  <motion.div
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                    className="flex gap-3"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                      <Bot size={16} />
+                    </div>
+                    <div className="px-5 py-4 rounded-2xl bg-accent/5 border border-accent/10 rounded-tl-sm flex gap-1">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-bounce" style={{ animationDelay: "300ms" }} />
+                    </div>
+                  </motion.div>
+                )}
+
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Footer */}
+              <div className="mt-auto p-4 border-t border-foreground/10 bg-background flex-none">
+                <form onSubmit={handleSend} className="relative flex items-center">
+                  <input
+                    type="text"
+                    value={inputVal}
+                    onChange={(e) => setInputVal(e.target.value)}
+                    placeholder="Ask about Sohaib's experience..."
+                    disabled={isLoading}
+                    className="w-full bg-foreground/5 border border-foreground/10 rounded-full pl-5 pr-12 py-3 text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all disabled:opacity-50"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!inputVal.trim() || isLoading}
+                    className="absolute right-2 p-2 rounded-full bg-accent text-white hover:bg-emerald-500 disabled:opacity-50 disabled:hover:bg-accent transition-colors"
+                  >
+                    {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+                  </button>
+                </form>
+              </div>
             </div>
           </motion.div>
         )}
