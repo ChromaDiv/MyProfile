@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased text-foreground bg-background transition-colors duration-300`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased text-foreground bg-background transition-colors duration-300 cursor-default`}>
         <div className="noise-overlay" />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="fixed inset-0 -z-50 pointer-events-none bg-background">
