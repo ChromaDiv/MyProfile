@@ -27,7 +27,7 @@ export function Hero() {
     <section id="about" className="relative min-h-screen w-full flex items-center justify-center pt-32 md:pt-40 pb-16 px-6 overflow-hidden">
       {/* Tactical Background Elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-accent/5 dark:bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-accent/5 dark:bg-blue-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* Animated Floating Markers (HUD Style) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none select-none">
@@ -79,7 +79,7 @@ export function Hero() {
         {/* Name & Title */}
         <motion.div variants={childVariants} className="text-center mb-6">
           <h1 className="text-5xl md:text-8xl font-black font-outfit tracking-tighter leading-[0.9] mb-4">
-            SOHAIB <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-400">LATIF</span>
+            SOHAIB <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">LATIF</span>
           </h1>
           <p className="text-xl md:text-3xl font-medium font-outfit text-foreground/80 tracking-tight">
             Strategic Supply Chain Lead
@@ -98,7 +98,7 @@ export function Hero() {
         <motion.div variants={childVariants} className="flex flex-col sm:flex-row items-center gap-5">
           <Button
             size="lg"
-            className="rounded-full px-8 h-14 bg-accent hover:bg-emerald-600 text-white font-bold group"
+            className="rounded-full px-8 h-14 bg-accent hover:bg-blue-600 text-white font-bold group"
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Operational Systems

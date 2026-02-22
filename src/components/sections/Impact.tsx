@@ -46,7 +46,7 @@ const dimensions = [
     icon: <TrendingUp className="w-5 h-5" />,
     angle: "Resource management is the heart of profitability.",
     text: "Applying Lean Manufacturing and Six Sigma to the operational lifecycle, focusing on reducing waste and streamlining procurement for scalable ROI.",
-    color: "emerald"
+    color: "blue-400"
   },
   {
     category: "People (Ethics & Inclusivity)",
@@ -94,21 +94,21 @@ export function Impact() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                <Globe className="w-3 h-3 text-emerald-500" />
-                <span className="text-[10px] font-mono font-bold text-emerald-600 uppercase tracking-widest">Global ESG Strategy</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+                <Globe className="w-3 h-3 text-blue-500" />
+                <span className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-widest">Global ESG Strategy</span>
               </div>
 
               <h2 className="text-4xl md:text-6xl font-bold font-outfit tracking-tight leading-[1.1]">
-                Bridging Engineering & <span className="text-emerald-500">Humanity.</span>
+                Bridging Engineering & <span className="text-blue-500">Humanity.</span>
               </h2>
 
               <p className="text-lg text-foreground/70 leading-relaxed font-inter">
                 Modern supply chains are no longer just about moving goods; they are about moving them ethically and sustainably.
               </p>
 
-              <div className="p-6 rounded-3xl bg-emerald-500/5 border border-emerald-500/10 italic text-foreground/80 relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500" />
+              <div className="p-6 rounded-3xl bg-blue-500/5 border border-blue-500/10 italic text-foreground/80 relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-blue-500" />
                 "By combining my NUST Mechanical Engineering foundation, MBA leadership, and MPhil in International Development, I optimize for the Triple Bottom Line."
               </div>
             </motion.div>
@@ -125,11 +125,11 @@ export function Impact() {
                   transition={{ delay: idx * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <GlassCard className="p-1 px-1 overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
+                  <GlassCard className="p-1 px-1 overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
                     <div className="flex flex-col md:flex-row items-stretch gap-0 md:gap-6">
                       {/* Icon/Category Sidebar */}
                       <div className="md:w-1/4 p-6 flex flex-col justify-between items-start border-b md:border-b-0 md:border-r border-foreground/5 bg-foreground/[0.02]">
-                        <div className="p-3 rounded-2xl bg-background border border-foreground/10 text-emerald-500 group-hover:scale-110 transition-transform">
+                        <div className="p-3 rounded-2xl bg-background border border-foreground/10 text-blue-500 group-hover:scale-110 transition-transform">
                           {dim.icon}
                         </div>
                         <span className="text-[10px] font-mono font-bold text-foreground/40 mt-4 uppercase tracking-tighter">
@@ -139,7 +139,7 @@ export function Impact() {
 
                       {/* Content Area */}
                       <div className="md:w-3/4 p-6 md:p-8">
-                        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-emerald-500 transition-colors">
+                        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-blue-500 transition-colors">
                           &quot;{dim.angle}&quot;
                         </h3>
                         <p className="text-sm text-foreground/60 leading-relaxed">

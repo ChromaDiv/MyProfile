@@ -58,7 +58,7 @@ export function Navbar() {
         className={cn(
           "relative z-50 flex items-center justify-between pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30 transition-colors duration-500",
           isScrolled
-            ? "px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-emerald-500/20"
+            ? "px-5 md:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-background/90 dark:bg-background/80 backdrop-blur-3xl border-foreground/10 dark:border-blue-500/20"
             : "px-6 md:px-8 shadow-xl bg-background/50 dark:bg-background/40 backdrop-blur-2xl border-foreground/10 dark:border-white/10"
         )}>
         {/* Logo */}
@@ -170,7 +170,7 @@ export function Navbar() {
               transition={{ delay: 0.6 }}
               className="pb-12 pt-8 w-full flex justify-center gap-6 mt-auto"
             >
-              <a href="https://linkedin.com/in/sohaiblatif" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-foreground/5 dark:bg-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] border border-foreground/10 dark:border-white/10 text-foreground/70 active:scale-95 active:bg-emerald-500/20 hover:text-emerald-400 transition-all">
+              <a href="https://linkedin.com/in/sohaiblatif" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-foreground/5 dark:bg-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] border border-foreground/10 dark:border-white/10 text-foreground/70 active:scale-95 active:bg-blue-500/20 hover:text-blue-400 transition-all">
                 <Linkedin size={24} />
               </a>
             </motion.div>

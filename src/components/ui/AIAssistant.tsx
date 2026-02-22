@@ -158,7 +158,7 @@ export function AIAssistant() {
             </div>
 
             <div className="relative z-10 flex flex-col items-start justify-center pt-0.5 mr-2">
-              <span className="font-outfit font-bold text-sm tracking-wide bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent group-hover:from-emerald-400 group-hover:to-accent transition-all duration-500">
+              <span className="font-outfit font-bold text-sm tracking-wide bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-accent transition-all duration-500">
                 Sohaib's AI
               </span>
               <span className="text-[9px] font-mono text-foreground/50 uppercase tracking-widest -mt-0.5 group-hover:text-foreground/80 transition-colors duration-300">
@@ -282,7 +282,7 @@ export function AIAssistant() {
                     whileTap={{ scale: 0.8 }}
                     type="submit"
                     disabled={!inputVal.trim() || isLoading}
-                    className="absolute right-2 p-2 rounded-full bg-accent text-white hover:bg-emerald-500 disabled:opacity-50 disabled:hover:bg-accent transition-colors"
+                    className="absolute right-2 p-2 rounded-full bg-accent text-white hover:bg-blue-500 disabled:opacity-50 disabled:hover:bg-accent transition-colors"
                   >
                     {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
                   </motion.button>

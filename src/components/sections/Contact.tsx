@@ -72,7 +72,7 @@ export function Contact() {
           </div>
 
           <div className="p-6 rounded-2xl bg-foreground/[0.02] border border-foreground/5 inline-flex items-center gap-4">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             <span className="text-xs font-mono font-medium text-foreground/60 uppercase tracking-wider">Response SLA: &lt; 24 Hours</span>
           </div>
         </motion.div>
@@ -135,7 +135,7 @@ export function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full h-14 rounded-xl bg-accent hover:bg-emerald-600 text-white font-bold tracking-wide transition-all shadow-lg shadow-accent/10"
+                  className="w-full h-14 rounded-xl bg-accent hover:bg-blue-600 text-white font-bold tracking-wide transition-all shadow-lg shadow-accent/10"
                   disabled={loading}
                 >
                   {loading ? (

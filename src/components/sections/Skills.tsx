@@ -55,7 +55,7 @@ export function Skills() {
             <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent font-bold">Capabilities</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-outfit mb-6 text-foreground tracking-tight">
-            Professional Expertise & <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-400">Core Competencies</span>
+            Professional Expertise & <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Core Competencies</span>
           </h2>
           <p className="text-foreground/60 max-w-xl text-lg leading-relaxed">
             High-performance industrial systems and engineering frameworks optimized for operational excellence.

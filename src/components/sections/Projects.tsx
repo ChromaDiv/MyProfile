@@ -22,8 +22,8 @@ const projects = [
       { label: "Compliance", value: "LEED Gold", trend: "stable" },
     ],
     tags: ["LEED", "Traceability", "QA/QC"],
-    color: "text-emerald-400",
-    bg: "group-hover:border-emerald-500/50",
+    color: "text-blue-400",
+    bg: "group-hover:border-blue-500/50",
     icon: <Code2 className="w-6 h-6" />,
     demoLink: "https://green-build-nu.vercel.app/"
   },
@@ -63,8 +63,8 @@ const projects = [
       { label: "Op-Waste", value: "-18%", trend: "down" },
     ],
     tags: ["AI", "Inventory", "Sourcing"],
-    color: "text-emerald-500",
-    bg: "group-hover:border-emerald-600/50",
+    color: "text-blue-500",
+    bg: "group-hover:border-blue-600/50",
     icon: <TerminalSquare className="w-6 h-6" />,
     demoLink: "https://mintcream-zebra-738412.hostingersite.com/"
   }

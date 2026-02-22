@@ -65,7 +65,7 @@ export function CaseStudies() {
             <div className="lg:col-span-4 p-8 lg:p-10 bg-foreground/[0.02] border-b lg:border-b-0 lg:border-r border-foreground/5 print:border-r">
               <div className="flex flex-col h-full justify-between">
                 <div>
-                  <div className="p-4 bg-green-500/10 text-green-500 rounded-2xl w-fit mb-6">
+                  <div className="p-4 bg-blue-500/10 text-blue-500 rounded-2xl w-fit mb-6">
                     <Zap size={32} />
                   </div>
                   <h3 className="text-3xl font-bold font-outfit mb-2">GreenBuild Ledger</h3>
