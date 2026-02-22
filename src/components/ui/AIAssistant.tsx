@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, User, Loader2 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
@@ -220,7 +221,13 @@ export function AIAssistant() {
                       ? 'bg-foreground/10 text-foreground rounded-tr-sm'
                       : 'bg-accent/10 border border-accent/10 text-foreground/90 rounded-tl-sm'
                       }`}>
-                      {msg.content}
+                      <ReactMarkdown
+                        components={{
+                          strong: ({ node, ...props }: any) => <strong className="font-bold text-foreground" {...props} />
+                        }}
+                      >
+                        {msg.content}
+                      </ReactMarkdown>
                     </div>
                   </motion.div>
                 ))}
