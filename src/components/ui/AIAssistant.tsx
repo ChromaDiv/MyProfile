@@ -198,7 +198,7 @@ export function AIAssistant() {
               </div>
 
               {/* Input Footer */}
-              <div className="mt-auto p-4 border-t border-foreground/10 bg-background flex-none">
+              <div className="mt-auto p-4 border-t border-foreground/10 bg-background flex-none rounded-b-2xl">
                 <form onSubmit={handleSend} className="relative flex items-center">
                   <input
                     type="text"
