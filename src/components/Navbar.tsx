@@ -124,7 +124,7 @@ export function Navbar() {
           )}
 
           <button
-            className="md:hidden p-2 rounded-full bg-foreground/5 dark:bg-white/5 border border-foreground/10 dark:border-white/10 active:bg-emerald-500/20 transition-colors"
+            className="md:hidden p-2 rounded-full bg-foreground/5 dark:bg-white/5 border border-foreground/10 dark:border-white/10 active:bg-blue-500/20 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -140,7 +140,7 @@ export function Navbar() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-40 bg-background/95 dark:bg-[#050a05]/95 backdrop-blur-3xl pt-32 px-6 flex flex-col md:hidden pointer-events-auto"
+            className="fixed inset-0 z-40 bg-background/95 dark:bg-[#020617]/95 backdrop-blur-3xl pt-32 px-6 flex flex-col md:hidden pointer-events-auto"
           >
             <div className="flex flex-col gap-4 items-center w-full max-w-sm mx-auto flex-1 mt-8">
               {navLinks.map((link, i) => (
@@ -154,9 +154,9 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="group flex justify-center items-center w-full text-2xl font-bold font-outfit py-4 rounded-full bg-foreground/5 dark:bg-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] active:scale-95 hover:bg-gradient-to-r hover:from-emerald-500/20 hover:to-teal-500/20 active:from-emerald-500/30 active:to-teal-500/30 transition-all duration-300 border border-foreground/10 dark:border-white/10"
+                    className="group flex justify-center items-center w-full text-2xl font-bold font-outfit py-4 rounded-full bg-foreground/5 dark:bg-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] active:scale-95 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-sky-500/20 active:from-blue-500/30 active:to-sky-500/30 transition-all duration-300 border border-foreground/10 dark:border-white/10"
                   >
-                    <span className="bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-300 dark:to-teal-300 bg-clip-text text-transparent group-hover:from-emerald-500 group-hover:to-teal-200 transition-all duration-300 tracking-wide">
+                    <span className="bg-gradient-to-r from-blue-600 to-sky-600 dark:from-blue-300 dark:to-sky-300 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-sky-200 transition-all duration-300 tracking-wide">
                       {link.name}
                     </span>
                   </Link>

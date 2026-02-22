@@ -35,8 +35,8 @@ export function BackgroundScene() {
   useEffect(() => setMounted(true), []);
 
   const colors = useMemo(() => ({
-    // Interchanged: Emerald is now the smaller accent, Blue is the primary large orb
-    emerald: "#10b981",
+    // Professional Blue and Cyan accents
+    cyan: "#06b6d4",
     blue: isDark ? "#3b82f6" : "#2563eb",
     slate: isDark ? "#0f172a" : "#f8fafc"
   }), [isDark]);
@@ -64,9 +64,9 @@ export function BackgroundScene() {
             distort={0.35}
           />
 
-          {/* Now the Emerald Orb is the Secondary Accent (Top Left) */}
+          {/* Now the Cyan Orb is the Secondary Accent (Top Left) */}
           <KineticOrb
-            color={colors.emerald}
+            color={colors.cyan}
             position={[-5, 3, -4]}
             size={1.6}
             speed={0.9}

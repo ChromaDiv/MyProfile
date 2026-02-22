@@ -12,8 +12,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { useTheme } from "next-themes";
 import { Globe, Users, Leaf, TrendingUp } from "lucide-react";
 
-function GlobalImpactGlobe() {
-  const { theme } = useTheme();
+function GlobalImpactGlobe({ color }: { color: string }) {
   const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => random.inSphere(new Float32Array(9000), { radius: 1.5 }) as Float32Array);
 
@@ -29,8 +28,8 @@ function GlobalImpactGlobe() {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          opacity={theme === "dark" ? 0.4 : 0.2}
-          color={theme === "light" ? "#064e3b" : "#10b981"}
+          opacity={0.4}
+          color={color}
           size={0.015}
           sizeAttenuation={true}
           depthWrite={false}
@@ -60,7 +59,7 @@ const dimensions = [
     icon: <Leaf className="w-5 h-5" />,
     angle: "Sustainability is a quality and compliance metric.",
     text: "Architecting LEED-aligned frameworks that balance performance with minimal environmental impact, transforming 'green' goals into intelligence.",
-    color: "teal"
+    color: "blue"
   }
 ];
 
@@ -70,6 +69,7 @@ export function Impact() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
+  const { theme } = useTheme();
 
   const globeOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 1, 0.2]);
 
@@ -79,7 +79,7 @@ export function Impact() {
       {/* Background Subtle Globe Decoration */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-50 z-0">
         <Canvas camera={{ position: [0, 0, 4] }}>
-          <GlobalImpactGlobe />
+          <GlobalImpactGlobe color={theme === "light" ? "#1e40af" : "#3b82f6"} />
         </Canvas>
       </div>
 
