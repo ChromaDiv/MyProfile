@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X, Github, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,10 +23,18 @@ export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
+  const { scrollY } = useScroll();
+
+  // Continuously map scroll position to layout values for fluid shrinking
+  const navWidth = useTransform(scrollY, [0, 400], ["1152px", "896px"]); // max-w-6xl to max-w-4xl
+  const navPaddingY = useTransform(scrollY, [0, 400], ["16px", "12px"]);
+  const navMarginTop = useTransform(scrollY, [0, 400], ["24px", "16px"]);
+
   React.useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 500);
+      // Background/shadow trigger
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -40,15 +48,13 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       <motion.div
-        initial={false}
-        animate={{
-          width: isScrolled ? "896px" : "1280px",
+        style={{
+          width: navWidth,
           maxWidth: "100%",
-          paddingTop: isScrolled ? "12px" : "16px",
-          paddingBottom: isScrolled ? "12px" : "16px",
-          marginTop: isScrolled ? "16px" : "24px",
+          paddingTop: navPaddingY,
+          paddingBottom: navPaddingY,
+          marginTop: navMarginTop,
         }}
-        transition={{ type: "spring", stiffness: 80, damping: 20 }}
         className={cn(
           "relative z-50 flex items-center justify-between pointer-events-auto rounded-full border hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] hover:border-accent/20 dark:hover:border-accent/30 transition-colors duration-500",
           isScrolled
