@@ -21,8 +21,7 @@ const projects = [
     tags: ["LEED & Estidama", "Material Traceability", "QA/QC Automation", "Supply Chain Analytics"],
     icon: <Code2 className="w-10 h-10 mb-4 text-green-400" />,
     className: "md:col-span-2 md:row-span-2",
-    demoLink: "https://green-build-nu.vercel.app/",
-    image: "/greenbuild_dashboard.png"
+    demoLink: "https://green-build-nu.vercel.app/"
   },
   {
     id: "gov-ims",
@@ -60,8 +59,7 @@ const projects = [
     tags: ["Supply Chain Resilience", "Inventory Optimization", "Predictive Analytics", "Operational ROI"],
     icon: <TerminalSquare className="w-10 h-10 mb-4 text-emerald-400" />,
     className: "md:col-span-2 md:row-span-2",
-    demoLink: "https://mintcream-zebra-738412.hostingersite.com/",
-    image: "/rmsys_visual.png"
+    demoLink: "https://mintcream-zebra-738412.hostingersite.com/"
   },
   {
     id: "chroma-div",
@@ -102,16 +100,6 @@ export function Projects() {
             className={project.className}
           >
             <GlassCard className="h-full flex flex-col p-0 overflow-hidden group hover:border-accent/40 transition-all duration-500 border-white/10 dark:border-white/5">
-              {project.image && (
-                <div className="relative h-64 overflow-hidden border-b border-white/10">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                </div>
-              )}
 
               <div className="p-8 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-4">
