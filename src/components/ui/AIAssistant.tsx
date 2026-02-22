@@ -173,11 +173,12 @@ export function AIAssistant() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.95 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] md:w-[380px] h-[550px] max-h-[85vh] flex flex-col shadow-2xl rounded-2xl group border border-foreground/10 dark:border-white/10 hover:border-accent/50 transition-all duration-500"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            style={{ transformOrigin: "bottom right" }}
+            className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] md:w-[380px] h-[550px] max-h-[85vh] flex flex-col shadow-2xl rounded-2xl group border border-foreground/10 dark:border-white/10 hover:border-accent/50 transition-colors duration-500"
           >
             {/* Ambient Background Gradient Pulse */}
             <motion.div
