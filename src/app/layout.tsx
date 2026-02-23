@@ -3,8 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BackgroundScene } from "@/components/ui/BackgroundScene";
-import { AIAssistant } from "@/components/ui/AIAssistant";
+import { BackgroundSceneClient } from "@/components/ui/BackgroundSceneClient";
+import { AIAssistantClient } from "@/components/ui/AIAssistantClient";
 import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -26,13 +26,12 @@ export default function RootLayout({
         <div className="noise-overlay" />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="fixed inset-0 -z-50 pointer-events-none bg-background">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
             <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(37,99,235,0.08)_0,rgba(37,99,235,0)_50%,rgba(37,99,235,0)_100%)] dark:bg-[radial-gradient(100%_50%_at_50%_0%,rgba(56,189,248,0.13)_0,rgba(56,189,248,0)_50%,rgba(56,189,248,0)_100%)]"></div>
           </div>
-          <BackgroundScene />
+          <BackgroundSceneClient />
           <Navbar />
           {children}
-          <AIAssistant />
+          <AIAssistantClient />
           <Footer />
         </ThemeProvider>
       </body>
