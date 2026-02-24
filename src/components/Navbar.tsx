@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Projects", href: "#projects" },
   { name: "Case Studies", href: "#case-studies" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -26,7 +27,7 @@ export function Navbar() {
   const { scrollY } = useScroll();
 
   // Continuously map scroll position to layout values for fluid shrinking
-  const navWidth = useTransform(scrollY, [0, 400], ["1152px", "896px"]); // max-w-6xl to max-w-4xl
+  const navWidth = useTransform(scrollY, [0, 400], ["1152px", "1024px"]); // max-w-6xl to max-w-5xl
   const navPaddingY = useTransform(scrollY, [0, 400], ["16px", "12px"]);
   const navMarginTop = useTransform(scrollY, [0, 400], ["24px", "16px"]);
 
@@ -72,7 +73,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2 relative flex-shrink-0">
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 relative flex-shrink-0">
           {navLinks.map((link, index) => (
             <Link
               key={link.name}
@@ -80,7 +81,7 @@ export function Navbar() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap flex-shrink-0",
+                "relative px-3 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap flex-shrink-0",
                 hoveredIndex === index ? "text-foreground" : "text-foreground/70"
               )}
             >
@@ -101,7 +102,7 @@ export function Navbar() {
 
         {/* Actions & Mobile Toggle */}
         <div className="flex items-center gap-4 relative z-10 flex-shrink-0">
-          <div className="hidden md:flex items-center flex-row gap-3 mr-2 border-r border-foreground/10 dark:border-white/10 pr-4">
+          <div className="hidden lg:flex items-center flex-row gap-3 mr-2 border-r border-foreground/10 dark:border-white/10 pr-4">
             <motion.a
               whileHover={{ y: -2 }}
               href="https://linkedin.com/in/sohaiblatif"
@@ -116,7 +117,7 @@ export function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full md:bg-transparent bg-foreground/5 dark:bg-white/5 border md:border-transparent border-foreground/10 dark:border-white/10 hover:bg-foreground/10 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full lg:bg-transparent bg-foreground/5 dark:bg-white/5 border lg:border-transparent border-foreground/10 dark:border-white/10 hover:bg-foreground/10 dark:hover:bg-white/10 transition-colors"
               aria-label="Toggle Theme"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
@@ -124,7 +125,7 @@ export function Navbar() {
           )}
 
           <button
-            className="md:hidden p-2 rounded-full bg-foreground/5 dark:bg-white/5 border border-foreground/10 dark:border-white/10 active:bg-blue-500/20 transition-colors"
+            className="lg:hidden p-2 rounded-full bg-foreground/5 dark:bg-white/5 border border-foreground/10 dark:border-white/10 active:bg-blue-500/20 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -140,7 +141,7 @@ export function Navbar() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-40 bg-background/95 dark:bg-[#020617]/95 backdrop-blur-3xl pt-32 px-6 flex flex-col md:hidden pointer-events-auto"
+            className="fixed inset-0 z-40 bg-background/95 dark:bg-[#020617]/95 backdrop-blur-3xl pt-32 px-6 flex flex-col lg:hidden pointer-events-auto"
           >
             <div className="flex flex-col gap-4 items-center w-full max-w-sm mx-auto flex-1 mt-8">
               {navLinks.map((link, i) => (

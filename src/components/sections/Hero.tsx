@@ -24,7 +24,7 @@ const childVariants: Variants = {
 
 export function Hero() {
   return (
-    <section id="about" className="glass-section flex items-center justify-center pt-32 md:pt-40 pb-16 px-6 min-h-screen">
+    <section id="about" className="glass-section flex items-center justify-center min-h-[100dvh] pt-32 md:pt-40 pb-16 px-6">
       {/* Tactical Background Elements */}
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-accent/5 dark:bg-blue-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />

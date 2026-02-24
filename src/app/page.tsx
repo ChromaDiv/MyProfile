@@ -6,6 +6,7 @@ const Projects = dynamic(() => import("@/components/sections/Projects").then(mod
 const Skills = dynamic(() => import("@/components/sections/Skills").then(mod => mod.Skills));
 const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies").then(mod => mod.CaseStudies));
 const Impact = dynamic(() => import("@/components/sections/Impact").then(mod => mod.Impact));
+const Certifications = dynamic(() => import("@/components/sections/Certifications").then(mod => mod.Certifications));
 const Contact = dynamic(() => import("@/components/sections/Contact").then(mod => mod.Contact));
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Skills />
       <CaseStudies />
       <Impact />
+      <Certifications />
       <Contact />
     </main>
   );
