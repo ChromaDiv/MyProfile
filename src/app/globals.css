@@ -50,17 +50,3 @@ html {
   @apply relative w-full overflow-hidden border-none;
   border: none !important;
 }
-
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.dark .glass {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
